@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Blood Dispatch & Medical Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Emergency Blood Dispatch Hub</h1>
+        <p>Register your request, match with verified local donors instantly, and consult medical professionals.</p>
+    </header>
+
+    <main class="dashboard">
+        
+        <div class="side-column">
+            <section class="control-panel">
+                <h2>1. Patient & Request Details</h2>
+                
+                <div class="form-group">
+                    <label for="patient-name">Patient Full Name:</label>
+                    <input type="text" id="patient-name" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-phone">Your Contact Number:</label>
+                    <input type="tel" id="contact-phone" placeholder="+91 98765 43210" inputmode="numeric" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="blood-type">Blood Type Required:</label>
+                    <select id="blood-type">
+                        <option value="O-">O- (Universal Donor)</option>
+                        <option value="O+">O+</option>
+                        <option value="A-">A-</option>
+                        <option value="A+">A+</option>
+                        <option value="B-">B-</option>
+                        <option value="B+">B+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="AB+">AB+ (Universal Recipient)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="radius">Search Radius: <span id="radius-value">10</span> km</label>
+                    <input type="range" id="radius" min="1" max="50" value="10">
+                </div>
+
+                <button id="search-btn">Register Request & Search</button>
+                <p id="status-msg" class="status"></p>
+            </section>
+            
+            <section class="doctor-panel">
+                <h2>On-Call Medical Advisors</h2>
+                <div id="doctor-list" class="doctor-list">
+                    </div>
+            </section>
+
+            <section class="donor-panel">
+                <h2>3. Donor Registration</h2>
+
+                <div class="form-group">
+                    <label for="donor-name">Donor Full Name:</label>
+                    <input type="text" id="donor-name" placeholder="Alex Morgan">
+                </div>
+
+                <div class="form-group">
+                    <label for="donor-phone">Donor Mobile Number:</label>
+                    <input type="tel" id="donor-phone" placeholder="+91 98765 43210" inputmode="numeric">
+                </div>
+
+                <div class="form-group">
+                    <label for="donor-blood-type">Donor Blood Type:</label>
+                    <select id="donor-blood-type">
+                        <option value="O-">O-</option>
+                        <option value="O+">O+</option>
+                        <option value="A-">A-</option>
+                        <option value="A+">A+</option>
+                        <option value="B-">B-</option>
+                        <option value="B+">B+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="AB+">AB+</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="donor-distance">Approximate Distance From Hospital: <span id="donor-distance-value">5</span> km</label>
+                    <input type="range" id="donor-distance" min="1" max="50" value="5">
+                </div>
+
+                <button id="donor-register-btn" type="button">Register Donor</button>
+                <p id="donor-status-msg" class="status"></p>
+            </section>
+
+            <section class="certificate-panel">
+                <h2>4. Donor Rewards</h2>
+                <div class="certificate-card" id="certificate-card">
+                    <p class="certificate-empty">No donation certificate yet. Mark a donor as donated to generate one.</p>
+                </div>
+            </section>
+        </div>
+
+        <section class="results-panel">
+            <h2>2. Compatible Live Matches</h2>
+            <div id="metrics" class="metrics">
+                <div class="metric-card">
+                    <span id="total-found">0</span>
+                    <label>Available Donors</label>
+                </div>
+                <button id="broadcast-btn" class="broadcast-btn" disabled>Broadcast Urgent SOS</button>
+            </div>
+            
+            <ul id="donor-list" class="donor-list">
+                <li class="empty-state">Fill out your details and search to find compatible donors.</li>
+            </ul>
+        </section>
+        
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
